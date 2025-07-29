@@ -1,7 +1,7 @@
 # Metadata Editor
 
-> ⚠️ **Work in Progress** - Not ready for production use.
-
+> ⚠️ **Work in Progress**
+> 
 A metadata editor for images with a clean interface.
 
 ## Current Status
@@ -116,15 +116,5 @@ Ensure write permissions to the project directory.
 
 ## Contributing
 
-This is a personal project under development. Contributions welcome:
-- Report issues
-- Suggest improvements
-- Submit pull requests
+This is a personal project under development.
 
-## License
-
-MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-**Status**: Work in progress - expect changes and incomplete features. 

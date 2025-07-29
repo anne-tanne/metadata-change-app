@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-secondary-50 text-secondary-900 dark:bg-secondary-900 dark:text-secondary-100;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  * {
+    @apply border-secondary-200 dark:border-secondary-700;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    @apply text-secondary-900 dark:text-secondary-100;
+  }
+
+  /* Base text colors */
+  p, span, div {
+    @apply text-secondary-900 dark:text-secondary-100;
+  }
+
+  /* Secondary text */
+  .text-secondary {
+    @apply text-secondary-600 dark:text-secondary-400;
+  }
+
+  /* Muted text */
+  .text-muted {
+    @apply text-secondary-500 dark:text-secondary-500;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 shadow-soft hover:shadow-medium;
+    color: black;
+  }
+  
+  .btn-primary:disabled {
+    @apply bg-primary-300 hover:bg-primary-300;
+    color: black;
+  }
+  
+  .dark .btn-primary {
+    color: white;
+  }
+  
+  .dark .btn-primary:disabled {
+    @apply bg-primary-800 hover:bg-primary-800;
+    color: white;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-secondary-700 border-secondary-300 hover:bg-secondary-50 focus:ring-secondary-500 shadow-soft hover:shadow-medium dark:bg-secondary-800 dark:text-secondary-200 dark:border-secondary-600 dark:hover:bg-secondary-700;
+  }
+
+  .btn-success {
+    @apply btn bg-success-600 text-white hover:bg-success-700 focus:ring-success-500 shadow-soft hover:shadow-medium dark:bg-success-500 dark:hover:bg-success-400 dark:text-success-900;
+  }
+
+  .btn-warning {
+    @apply btn bg-warning-600 text-white hover:bg-warning-700 focus:ring-warning-500 shadow-soft hover:shadow-medium dark:bg-warning-500 dark:hover:bg-warning-600;
+  }
+
+  .btn-error {
+    @apply btn bg-error-600 text-white hover:bg-error-700 focus:ring-error-500 shadow-soft hover:shadow-medium dark:bg-error-500 dark:hover:bg-error-600;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-secondary-600 hover:bg-secondary-100 focus:ring-secondary-500 dark:text-secondary-300 dark:hover:bg-secondary-800;
+  }
+
+  .input {
+    @apply block w-full px-3 py-2 border border-secondary-300 rounded-lg shadow-sm placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 dark:bg-secondary-800 dark:border-secondary-600 dark:text-secondary-100 dark:placeholder-secondary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400;
+  }
+
+  .input-error {
+    @apply input border-error-300 focus:ring-error-500 focus:border-error-500 dark:border-error-500 dark:focus:ring-error-400 dark:focus:border-error-400;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-soft border border-secondary-200 overflow-hidden dark:bg-secondary-800 dark:border-secondary-700 dark:shadow-large;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-medium transition-shadow duration-200 dark:hover:shadow-large;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200;
+  }
+
+  .badge-secondary {
+    @apply badge bg-secondary-100 text-secondary-800 dark:bg-secondary-700 dark:text-secondary-200;
+  }
+
+  .badge-success {
+    @apply badge bg-success-100 text-success-800 dark:bg-success-200 dark:text-success-900;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning-100 text-warning-800 dark:bg-warning-900 dark:text-warning-200;
+  }
+
+  .badge-error {
+    @apply badge bg-error-100 text-error-800 dark:bg-error-900 dark:text-error-200;
+  }
+
+  .sidebar {
+    @apply fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-large transform transition-transform duration-300 ease-in-out dark:bg-secondary-800 dark:border-secondary-700;
+  }
+
+  .sidebar-closed {
+    @apply -translate-x-full;
+  }
+
+  .sidebar-open {
+    @apply translate-x-0;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-secondary-900 bg-opacity-50 backdrop-blur-sm z-50 dark:bg-opacity-70;
+  }
+
+  .modal-content {
+    @apply fixed inset-0 z-50 overflow-y-auto;
+  }
+
+  .modal-panel {
+    @apply flex min-h-full items-center justify-center p-4;
+  }
+
+  .modal-dialog {
+    @apply w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-large transition-all dark:bg-secondary-800 dark:border-secondary-700;
+  }
+
+  .tooltip {
+    @apply absolute z-10 px-2 py-1 text-xs font-medium text-white bg-secondary-900 rounded-lg opacity-0 pointer-events-none transition-opacity duration-200 dark:bg-secondary-700;
+  }
+
+  .tooltip-visible {
+    @apply opacity-100;
+  }
+
+  .loading-spinner {
+    @apply animate-spin rounded-full border-2 border-secondary-300 border-t-primary-600 dark:border-secondary-600 dark:border-t-primary-400;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-secondary-900 dark:via-secondary-800 dark:to-secondary-900;
+  }
+
+  .glass-effect {
+    @apply bg-white bg-opacity-80 backdrop-blur-sm border border-white border-opacity-20 dark:bg-secondary-800 dark:bg-opacity-80 dark:border-secondary-700;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.secondary.300') transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.secondary.300');
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.secondary.400');
+  }
+
+  .dark .scrollbar-thin {
+    scrollbar-color: theme('colors.secondary.600') transparent;
+  }
+
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.secondary.600');
+  }
+
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.secondary.500');
+  }
+}
+
+/* Custom animations */
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2 dark:ring-offset-secondary-800;
+}
+
+/* Custom scrollbar for the main content */
+.main-content {
+  @apply scrollbar-thin;
+}
+
+/* Image preview styles */
+.image-preview {
+  @apply relative overflow-hidden rounded-lg bg-secondary-100 dark:bg-secondary-700;
+}
+
+.image-preview img {
+  @apply w-full h-full object-cover transition-transform duration-300;
+}
+
+.image-preview:hover img {
+  @apply scale-105;
+}
+
+/* Metadata field styles */
+.metadata-field {
+  @apply space-y-2;
+}
+
+.metadata-field-label {
+  @apply block text-sm font-medium text-secondary-700 dark:text-secondary-300;
+}
+
+.metadata-field-input {
+  @apply input;
+}
+
+.metadata-field-suggestions {
+  @apply mt-1 space-y-1;
+}
+
+.metadata-suggestion {
+  @apply flex items-center justify-between px-3 py-2 text-sm text-secondary-600 bg-secondary-50 rounded-lg cursor-pointer hover:bg-secondary-100 transition-colors duration-150 dark:text-secondary-300 dark:bg-secondary-700 dark:hover:bg-secondary-600;
+}
+
+.metadata-suggestion-count {
+  @apply text-xs text-secondary-500 bg-secondary-200 px-2 py-1 rounded-full dark:text-secondary-400 dark:bg-secondary-600;
+}
+
+/* Status indicators */
+.status-indicator {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.status-success {
+  @apply status-indicator bg-success-100 text-success-800 dark:bg-success-200 dark:text-success-900;
+}
+
+.status-warning {
+  @apply status-indicator bg-warning-100 text-warning-800 dark:bg-warning-900 dark:text-warning-200;
+}
+
+.status-error {
+  @apply status-indicator bg-error-100 text-error-800 dark:bg-error-900 dark:text-error-200;
+}
+
+.status-info {
+  @apply status-indicator bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200;
+}
+
+/* Progress bar */
+.progress-bar {
+  @apply w-full bg-secondary-200 rounded-full h-2 overflow-hidden dark:bg-secondary-700;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-primary-600 transition-all duration-300 ease-out dark:bg-primary-400;
+}
+
+/* File drop zone */
+.file-drop-zone {
+  @apply relative border-2 border-dashed border-secondary-300 rounded-xl p-8 text-center transition-all duration-200 dark:border-secondary-600 dark:bg-secondary-800;
+}
+
+.file-drop-zone-active {
+  @apply border-primary-500 bg-primary-50 dark:bg-primary-900 dark:border-primary-400;
+}
+
+.file-drop-zone-hover {
+  @apply border-secondary-400 bg-secondary-50 dark:border-secondary-500 dark:bg-secondary-700;
+}
+
+/* Notification styles */
+.notification {
+  @apply fixed top-4 right-4 z-50 max-w-sm w-full bg-white rounded-lg shadow-large border border-secondary-200 transform transition-all duration-300 dark:bg-secondary-800 dark:border-secondary-700;
+}
+
+.notification-enter {
+  @apply translate-x-full opacity-0;
+}
+
+.notification-enter-active {
+  @apply translate-x-0 opacity-100;
+}
+
+.notification-exit {
+  @apply translate-x-0 opacity-100;
+}
+
+.notification-exit-active {
+  @apply translate-x-full opacity-0;
+} 

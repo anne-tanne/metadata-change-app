@@ -1,0 +1,25 @@
+{
+  "backend": {
+    "host": "0.0.0.0",
+    "default_port": 5000,
+    "debug": false,
+    "max_file_size_mb": 16,
+    "upload_folder": "uploads",
+    "database_path": "data/metadata_editor.db"
+  },
+  "frontend": {
+    "default_port": 3000,
+    "api_timeout_ms": 30000
+  },
+  "app": {
+    "name": "Metadata Editor",
+    "version": "1.0.0",
+    "supported_image_formats": [".jpg", ".jpeg", ".png", ".tiff", ".tif", ".bmp", ".webp"]
+  },
+  "features": {
+    "enable_learning": true,
+    "enable_backup": true,
+    "enable_suggestions": true,
+    "max_suggestions_per_field": 10
+  }
+} 
